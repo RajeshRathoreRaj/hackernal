@@ -1,0 +1,135 @@
+<style type="text/css">
+    .root{
+      display: flex;
+      background-color: #ecf0f1;
+      justify-content: center;
+      align-items: center;
+     
+      flex-direction: column;
+     }
+     .subdiv{
+         width: 600px;
+         height: 550px;
+         background-color: #FFF;
+         padding:25px ;
+         border-radius: 20px;
+    
+     }
+    .gap{
+        margin-top:5px;
+    }
+    </style>
+    <html>
+
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="/javascripts/project.js"></script>
+
+        
+<script type="text/javascript">
+    function validate() {
+
+     var emailid = document.forms["myform"]["emailid"].value;
+     if(emailid==""){
+     alert("Please enter the email");
+     return false;
+     }else{
+     var re = /^(?:[a-z0-9!#$%&amp;'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&amp;'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])$/;
+     var x=re.test(emailid);
+     if(x){
+     }else{
+     alert("Email id not in correct format");
+     return false;
+     }
+     }
+     var mobileno = document.forms["myform"]["mobileno"].value;
+     if(mobileno==""){
+     alert("Please enter the mobile");
+     return false;
+     }else{
+     if(isNaN(mobileno)){
+     alert("Mobile number not valid");
+     return false;
+     }
+     }
+    
+    }
+    </script>
+        
+
+
+        <body style=" background-color: #ecf0f1;">
+     <form action="/adduser/insertrecord" name="myform" action="welcome.php" onsubmit="validate()" method="POST">
+         <div class="root" >
+              <div style="padding: 10px; font-size: 20px;font-weight: bold;letter-spacing: 2px;">
+                <img src="/images/supplier.png" width="40"/>  
+              Add_User Registration
+              </div>
+    
+    
+             <div class="subdiv">
+                <a href="/adduser/fetchadduser">Add_User Detail List</a>
+         <div class="row"  style="padding: 10px;font-weight:bold;color:darkcyan">
+          Personal Details
+         </div>        
+        <div class="row" >
+           <div class="col">
+               <input type="text" required pattern="[a-z A-z]+" name="firstname" class="form-control" placeholder="First Name">
+           </div>
+           <div class="col">
+            <input type="text" name="lastname" required pattern="[a-z A-z]+" class="form-control" placeholder="Last Name">
+           </div>
+       </div>
+    
+      
+      
+    
+     <div class="row"  style="padding: 10px;font-weight:bold;color:darkcyan">
+        Contact Details
+       </div>        
+     
+ 
+    <div class="row gap" >
+        <div class="col">
+            <input required type="email" name="emailid" class="form-control" placeholder="Email Address">
+        </div>
+        <div class="col">
+         <input required pattern="[0-9]{10}" title="Must Be 10 Digits Only" type="text" name="mobileno" class="form-control" placeholder="Mobile Number">
+        </div>
+    </div>
+    
+   
+     <div class="row gap">
+        <div class="col" style="display: flex;justify-content: center; align-items: center;">
+          <input type="submit" value="Submit" class="btn btn-primary" style="width: 200px;">  
+        </div>
+           <div class="col">
+            <input type="reset" value="Print_ExcelSheetData" class="btn btn-primary" style="width: 200px;">
+           </div>
+     </div>
+
+
+     <div class="row gap">
+        <div style="display: flex; align-items: center; justify-content: center; width:580px">
+           <% if(result==1) { %>
+           <div style="color:darkgreen; font-size: 16px; font-weight: bold;">Record Submitted...</div> 
+           <% }else if(result==0){ %>
+            <div style="color:darkgreen; font-size: 16px; font-weight: bold;">Fail to Submit Record...</div> 
+           <%}%>
+        </div>
+        </div>
+     
+
+    
+    
+    
+    </div>
+    </div>
+     </form>
+    
+    </body>
+    </html>

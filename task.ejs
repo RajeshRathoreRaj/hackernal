@@ -1,0 +1,85 @@
+<style type="text/css">
+    .root{
+      display: flex;
+      background-color: #ecf0f1;
+      justify-content: center;
+      align-items: center;
+     
+      flex-direction: column;
+     }
+     .subdiv{
+         width: 600px;
+         height: 550px;
+         background-color: #FFF;
+         padding:25px ;
+         border-radius: 20px;
+    
+     }
+    .gap{
+        margin-top:5px;
+    }
+    </style>
+    <html>
+
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <body style=" background-color: #ecf0f1;">
+     <form action="/task/insertrecordtask" method="POST">
+         <div class="root" >
+              <div style="padding: 10px; font-size: 20px;font-weight: bold;letter-spacing: 2px;">
+                <img src="/images/supplier.png" width="40"/>  
+               Task
+              </div>
+    
+    
+             <div class="subdiv">
+                <a href="/task/fetchtask">Task Details</a>
+         <div class="row"  style="padding: 10px;font-weight:bold;color:darkcyan">
+        Task Assign
+         </div>        
+        <div class="row" >
+        
+               <input type="text" required pattern="[a-z A-z]+" name="taskname" class="form-control" placeholder="Task Name">
+           </div>  
+    
+       <div class="row gap">
+        <div class="col" style="display: flex;justify-content: center; align-items: center;">
+          <input required type="radio" value="pending" name="tasktype" >Pending
+            <input  required type="radio" value="done" name="tasktype" >Done 
+         </div></div>
+    
+   
+     <div class="row gap">
+        <div class="col" style="display: flex;justify-content: center; align-items: center;">
+          <input type="submit" class="btn btn-primary" style="width: 200px;">  
+        </div>
+           <div class="col">
+            <input type="reset" value="Print_ExcelSheetData" class="btn btn-primary" style="width: 200px;">
+           </div>
+     </div>
+
+
+     <div class="row gap">
+        <div style="display: flex; align-items: center; justify-content: center; width:580px">
+           <% if(result==1) { %>
+           <div style="color:darkgreen; font-size: 16px; font-weight: bold;">Record Submitted...</div> 
+           <% }else if(result==0){ %>
+            <div style="color:darkgreen; font-size: 16px; font-weight: bold;">Fail to Submit Record...</div> 
+           <%}%>
+        </div>
+        </div>
+     
+
+    
+    
+    
+    </div>
+    </div>
+     </form>
+    
+    </body>
+    </html>
