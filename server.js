@@ -18,7 +18,6 @@ app.get('/export-csv',function(req,res){
     const jsonUsers = JSON.parse(JSON.stringify(adduser));
     console.log(jsonUsers);
  
-    // -> Convert JSON to CSV data
     const csvFields = ['id', 'name', 'email'];
     const json2csvParser = new Json2csvParser({ csvFields });
     const csv = json2csvParser.parse(jsonCustomers);
@@ -29,11 +28,10 @@ app.get('/export-csv',function(req,res){
      res.setHeader("Content-Disposition", "attachment; filename=adduser.csv");
  
      res.status(200).end(csv);
-    // -> Check 'customer.csv' file in root project folder
+   
   });
 });
  
-// port must be set to 8080 because incoming http requests are routed from port 80 to port 8080
 app.listen(3000, function () {
     console.log('Node app is running on port 3000');
 });
